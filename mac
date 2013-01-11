@@ -83,6 +83,5 @@ echo "Installing Node"
   ### Uglify
   successfully npm install -g uglify-js
 
-# .dotfiles! (--strip-components=1 removes the top level ("repo-name") directory ) -- still looking for an elegant way to extract files to $HOME dir
-cd ~
-successfully curl -L -0 nt-dotfiles.tar.gz https://api.github.com/repos/nicktomlin/laptop/tarball | tar --strip-components=1 -zx
+# grab our .dotfiles! (--strip-components=1 removes the top level ("repo-name") directory ) -- still looking for an elegant way to extract files to $HOME dir
+curl -L -o nt-dotfiles.tar.gz https://api.github.com/repos/nicktomlin/laptop/tarball | tar --strip-components=1 -x -C `echo $HOME`
