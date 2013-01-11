@@ -84,4 +84,5 @@ echo "Installing Node"
   successfully npm install -g uglify-js
 
 # THIS WILL DELETE THINGS grab our .dotfiles! (--strip-components=1 removes the top level ("repo-name") directory )
-curl -L -o nt-dotfiles.tar.gz https://api.github.com/repos/nicktomlin/laptop/tarball | tar --strip-components=1 -x -C `echo $HOME`
+echo "Grabbing dotfiles"
+  succesfully curl -L -o nt-dotfiles.tar.gz https://api.github.com/repos/nicktomlin/laptop/tarball | tar --strip-components=1 -x -C `echo $HOME`
