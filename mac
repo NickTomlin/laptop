@@ -24,22 +24,13 @@ echo "Putting Homebrew location earlier in PATH ..."
 export PATH='/usr/local/bin:$PATH'" >> ~/.zshenv
   successfully source ~/.zshenv
 
-echo "Installing GNU Compiler Collection and dependencies ..."
-  successfully brew tap homebrew/dupes
-  successfully brew install autoconf automake apple-gcc42
+# passing for now
+# echo "Installing GNU Compiler Collection and dependencies ..."
+#   successfully brew tap homebrew/dupes
+#   successfully brew install autoconf automake apple-gcc42
 
 echo "Installing libksba, recommended for Ruby 1.9.3 ..."
   successfully brew install libksba
-
-echo "Installing Postgres, a good open source relational database ..."
-  successfully brew install postgres --no-python
-  successfully initdb /usr/local/var/postgres -E utf8
-
-echo "Installing Redis, a good key-value database ..."
-  successfully brew install redis
-
-echo "Installing ack, for searching the contents of files ..."
-  successfully brew install ack
 
 echo "Installing ctags, for indexing files for vim tab completion of methods, classes, variables ..."
   successfully brew install ctags
@@ -47,18 +38,10 @@ echo "Installing ctags, for indexing files for vim tab completion of methods, cl
 echo "Installing tmux, for saving project state and switching between projects ..."
   successfully brew install tmux
 
-echo "Installing reattach-to-user-namespace, for copy-paste and RubyMotion compatibility with tmux ..."
-  successfully brew install reattach-to-user-namespace
-
-echo "Installing ImageMagick, for cropping and re-sizing images ..."
-  successfully brew install imagemagick
-
-echo "Installing QT, used by Capybara Webkit for headless Javascript integration testing ..."
-  successfully brew install qt
-
 echo "Installing watch, used to execute a program periodically and show the output ..."
   successfully brew install watch
 
+# Consider rbenv
 echo "Installing RVM (Ruby Version Manager) and Ruby 1.9.3-p327, which becomes the default ..."
   successfully curl -L https://get.rvm.io | bash -s stable --ruby
   successfully echo "
@@ -74,3 +57,32 @@ echo "Installing standalone Heroku CLI client. You'll need administrative rights
 
 echo "Installing the heroku-config plugin for pulling config variables locally to be used as ENV variables ..."
   successfully /usr/local/heroku/bin/heroku plugins:install git://github.com/ddollar/heroku-config.git
+
+# Utilities
+echo "Installing ack, for searching the contents of files ..."
+  successfully brew install ack
+
+echo "Installing ImageMagick, for cropping and re-sizing images ..."
+  successfully brew install imagemagick
+
+echo "Installing wget, because sometimes curl is mean"
+  successfully brew install wget
+
+# Python
+echo "Installing Python 2"
+  successfully brew install python
+
+echo "installing Python 3"
+  successfully brew install python3
+
+# Node
+echo "Installing Node"
+  successfully brew install node
+
+## Node Packages
+  ### Uglify
+  successfully npm install -g uglify-js
+
+# .dotfiles!
+  # Psuedo code
+  # git archive --remote=https://github.com/NickTomlin/dotfiles | tar
