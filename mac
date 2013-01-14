@@ -68,6 +68,9 @@ echo "Installing ImageMagick, for cropping and re-sizing images ..."
 echo "Installing wget, because sometimes curl is mean"
   successfully brew install wget
 
+echo "Installing rename, to easily rename groups of files with: 's/foo/bar/' *.php"
+  successfully brew install rename
+
 # Python
 echo "Installing Python 2"
   successfully brew install python
