@@ -71,6 +71,9 @@ echo "Installing wget, because sometimes curl is mean"
 echo "Installing rename, to easily rename groups of files with: 's/foo/bar/' *.php"
   successfully brew install rename
 
+echo "installing ssh-copy-id"
+  successfully brew install ssh-copy-id
+
 # Python
 echo "Installing Python 2"
   successfully brew install python
