@@ -14,6 +14,13 @@ echo "Copying public key to clipboard. Paste it into your Github account ..."
 echo "Fixing permissions ..."
   successfully sudo chown -R `whoami` /usr/local
 
+echo "Grabbing Dotfiles"
+  succesfully git clone git://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
+  succesfully source $HOME/.homesick/repos/homeshick/homeshick.sh && homeshick clone git@github.com:NickTomlin/dotfiles.git
+
+echo "Cloning Vundle"
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 echo "Installing Homebrew, a good OS X package manager ..."
   successfully ruby <(curl -fsS https://raw.github.com/mxcl/homebrew/go)
   successfully brew update
@@ -24,71 +31,8 @@ echo "Putting Homebrew location earlier in PATH ..."
 export PATH='/usr/local/bin:$PATH'" >> ~/.zshenv
   successfully source ~/.zshenv
 
-# passing for now
-# echo "Installing GNU Compiler Collection and dependencies ..."
-#   successfully brew tap homebrew/dupes
-#   successfully brew install autoconf automake apple-gcc42
+echo "Installing a *lot* of applications via homebrew"
+  succesfully sh brew-install.sh
 
-echo "Installing libksba, recommended for Ruby 1.9.3 ..."
-  successfully brew install libksba
-
-echo "Installing ctags, for indexing files for vim tab completion of methods, classes, variables ..."
-  successfully brew install ctags
-
-echo "Installing tmux, for saving project state and switching between projects ..."
-  successfully brew install tmux
-
-echo "Installing watch, used to execute a program periodically and show the output ..."
-  successfully brew install watch
-
-# Consider rbenv
-echo "Installing RVM (Ruby Version Manager) and Ruby 1.9.3-p327, which becomes the default ..."
-  successfully curl -L https://get.rvm.io | bash -s stable --ruby
-  successfully echo "
-# RVM
-[[ -s '/Users/`whoami`/.rvm/scripts/rvm' ]] && source '/Users/`whoami`/.rvm/scripts/rvm'" >> ~/.zshenv
-  successfully source ~/.rvm/scripts/rvm
-
-echo "Installing critical Ruby gems for Rails development ..."
-  successfully gem install bundler rails pg foreman thin --no-rdoc --no-ri
-
-echo "Installing standalone Heroku CLI client. You'll need administrative rights on your machine ..."
-  successfully curl -s https://toolbelt.heroku.com/install.sh | sh
-
-echo "Installing the heroku-config plugin for pulling config variables locally to be used as ENV variables ..."
-  successfully /usr/local/heroku/bin/heroku plugins:install git://github.com/ddollar/heroku-config.git
-
-# Utilities
-echo "Installing ack, for searching the contents of files ..."
-  successfully brew install ack
-
-echo "Installing ImageMagick, for cropping and re-sizing images ..."
-  successfully brew install imagemagick
-
-echo "Installing wget, because sometimes curl is mean"
-  successfully brew install wget
-
-echo "Installing rename, to easily rename groups of files with: 's/foo/bar/' *.php"
-  successfully brew install rename
-
-echo "installing ssh-copy-id"
-  successfully brew install ssh-copy-id
-
-# Python
-echo "Installing Python 2"
-  successfully brew install python
-
-echo "installing Python 3"
-  successfully brew install python3
-
-# Node
-echo "Installing Node"
-  successfully brew install node
-
-## Node Packages
-  ### Uglify
-  successfully npm install -g uglify-js
-
-# THIS WILL DELETE THINGS grab our .dotfiles! (--strip-components=1 removes the top level ("repo-name") directory )
-echo "Grabbing dotfiles"
-  succesfully curl -L -o nt-dotfiles.tar.gz https://api.github.com/repos/nicktomlin/laptop/tarball | tar --strip-components=1 -x -C `echo $HOME`
+echo "Setting a lot of osx defaults. You will be asked for your password"
+  succesfully sh osx-defaults.sh
