@@ -21,28 +21,11 @@ Install
 
 Run the script:
 
-    zsh < <(curl -s https://raw.github.com/thoughtbot/laptop/master/mac)
+    zsh < <(curl -s https://raw.github.com/nicktomlin/laptop/master/mac)
 
 What it sets up
 ---------------
-
-* Ack for finding things in files
-* Bundler gem for managing Ruby libraries
-* Foreman gem for serving Rails apps locally
-* Heroku Toolbelt for interacting with the Heroku API
-* Heroku Config plugin for local `ENV` variables
-* Homebrew for managing operating system libraries
-* ImageMagick for cropping and resizing images
-* Qt for headless JavaScript testing via Capybara Webkit
-* Watch for periodically executing a program and displaying the output
-* Rails gem for writing web applications
-* Redis for storing key-value data
-* Ruby stable for writing general-purpose code
-* RVM for managing versions of the Ruby programming language
-* SSH public key for authenticating with Github and Heroku
-* Tmux for saving project state and switching between projects
-
-It should take less than 15 minutes to install (depends on your machine).
+A lot of stuff. Seriously. So much stuff.
 
 Credits
 -------
