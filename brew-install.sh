@@ -32,3 +32,7 @@ brew cask install virtualbox
 brew cask install sizeup
 brew cask alfred
 brew cask install flux
+
+# Add cask'd apps to alfred results
+brew cask alfred link
+
